@@ -85,14 +85,21 @@
   header.hero{
     min-height:100vh;display:flex;align-items:center;position:relative;
     background:
-      radial-gradient(circle at 75% 30%, rgba(198,161,91,.14), transparent 55%),
-      linear-gradient(160deg,#0d0d0d 0%,#161310 55%,#0d0d0d 100%);
+      linear-gradient(90deg, rgba(11,11,11,.94) 0%, rgba(11,11,11,.82) 38%, rgba(11,11,11,.42) 66%, rgba(11,11,11,.62) 100%),
+      radial-gradient(circle at 80% 32%, rgba(198,161,91,.16), transparent 52%),
+      url('img/koukla-hero.jpg') center right / cover no-repeat,
+      #0d0d0d;
     color:var(--cream);overflow:hidden;padding-top:80px;
   }
   header.hero::after{
     content:"";position:absolute;inset:0;
-    background:radial-gradient(circle at 20% 80%, rgba(198,161,91,.08), transparent 45%);
+    background:linear-gradient(180deg, rgba(11,11,11,.35) 0%, transparent 25%, transparent 70%, rgba(11,11,11,.5) 100%);
     pointer-events:none;
+  }
+  @media(max-width:820px){
+    header.hero{background:
+      linear-gradient(180deg, rgba(11,11,11,.75) 0%, rgba(11,11,11,.55) 45%, rgba(11,11,11,.82) 100%),
+      url('img/koukla-hero.jpg') center center / cover no-repeat, #0d0d0d;}
   }
   .hero-inner{max-width:820px;position:relative;z-index:2}
   .hero h1{font-size:clamp(3.4rem,11vw,8rem);line-height:.95;margin:1rem 0 1.4rem;color:var(--cream)}
@@ -175,11 +182,10 @@
   .contact-item .lbl{font-size:.7rem;letter-spacing:.25em;text-transform:uppercase;color:var(--gold2);margin-bottom:6px}
   .contact-item a,.contact-item p{font-family:'Forum',serif;font-size:1.3rem;color:var(--ink)}
   .map-box{
-    background:linear-gradient(160deg,#0d0d0d,#1b1712);color:var(--cream);
-    min-height:280px;display:flex;align-items:center;justify-content:center;text-align:center;padding:40px;position:relative;
+    background:#0d0d0d;min-height:340px;position:relative;overflow:hidden;
   }
-  .map-box::before{content:"";position:absolute;inset:16px;border:1px solid var(--line)}
-  .map-box .inner{position:relative}
+  .map-box iframe{width:100%;height:100%;min-height:340px;border:0;display:block;filter:grayscale(35%) contrast(1.05)}
+  .map-box::before{content:"";position:absolute;inset:16px;border:1px solid var(--line);z-index:2;pointer-events:none}
 
   /* FOOTER */
   footer{background:var(--ink);color:rgba(247,244,239,.7);padding:70px 0 34px}
@@ -231,7 +237,7 @@
 <!-- NAV -->
 <nav id="nav">
   <div class="nav-inner">
-    <a href="#top" class="nav-logo"><img src="https://static.wixstatic.com/media/9fcb2d_40c3af823e684b57b8058f17ea4bebe6~mv2.png/v1/fill/w_440,h_160,al_c,q_85,enc_auto/koukla%20logo.png" alt="Koukla Aesthetics"></a>
+    <a href="#top" class="nav-logo"><img src="img/koukla-logo.png" alt="Koukla Aesthetics"></a>
     <div class="nav-links" id="navLinks">
       <a class="link" href="#about">About</a>
       <a class="link" href="#treatments">Treatments</a>
@@ -350,11 +356,8 @@
       <a href="#" class="btn solid book-btn" style="margin-top:10px">Book a Consultation</a>
     </div>
     <div class="map-box reveal">
-      <div class="inner">
-        <p class="eyebrow" style="color:var(--gold2)">Koukla Aesthetics</p>
-        <h3 style="font-size:1.8rem;color:var(--cream)">Surrey, BC</h3>
-        <p style="color:rgba(247,244,239,.7);margin-top:10px">Unit 306 · 13798 94A Avenue</p>
-      </div>
+      <iframe title="Koukla Aesthetics location" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen
+        src="https://www.google.com/maps?q=13798%2094A%20Avenue%20Unit%20306%20Surrey%20BC%20V3V%201N1&output=embed"></iframe>
     </div>
   </div>
 </section>
@@ -363,7 +366,7 @@
 <footer>
   <div class="wrap foot-grid">
     <div>
-      <img src="https://static.wixstatic.com/media/9fcb2d_40c3af823e684b57b8058f17ea4bebe6~mv2.png/v1/fill/w_440,h_160,al_c,q_85,enc_auto/koukla%20logo.png" alt="Koukla Aesthetics">
+      <img src="img/koukla-logo.png" alt="Koukla Aesthetics">
       <p class="tagline">Skin Confident — Medical Aesthetics in Surrey, BC</p>
       <p style="font-size:.85rem;max-width:320px">Physician-directed injectables and skin treatments, delivered with exceptional, individualized care.</p>
     </div>
