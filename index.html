@@ -1,0 +1,596 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Koukla Aesthetics — Boutique Injectables Clinic, Surrey BC</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ivory:#faf6f0;
+    --ivory-2:#f3ece2;
+    --champagne:#d9bf9a;
+    --gold:#b8935a;
+    --gold-deep:#9a7841;
+    --ink:#3a332b;
+    --ink-soft:#6b6156;
+    --line:#e4d9c9;
+    --white:#fffdfa;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Jost',sans-serif;
+    background:var(--ivory);
+    color:var(--ink);
+    line-height:1.7;
+    font-weight:300;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,h4{font-family:'Cormorant Garamond',serif;font-weight:500;line-height:1.12;letter-spacing:.01em}
+  .serif-it{font-style:italic;font-weight:400}
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 32px}
+  .eyebrow{
+    font-family:'Jost',sans-serif;font-size:.72rem;letter-spacing:.32em;
+    text-transform:uppercase;color:var(--gold);font-weight:500;
+  }
+
+  /* NAV */
+  nav{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:18px 32px;
+    background:rgba(250,246,240,.82);
+    backdrop-filter:blur(14px);
+    border-bottom:1px solid transparent;
+    transition:.4s;
+  }
+  nav.scrolled{border-bottom:1px solid var(--line);padding:12px 32px;box-shadow:0 8px 40px -20px rgba(90,70,40,.3)}
+  .brand{font-family:'Cormorant Garamond',serif;font-size:1.55rem;letter-spacing:.16em;font-weight:600}
+  .brand span{color:var(--gold)}
+  .nav-links{display:flex;gap:26px;align-items:center}
+  .nav-links a{font-size:.76rem;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-soft);transition:.3s;position:relative}
+  .nav-links a::after{content:'';position:absolute;left:0;bottom:-5px;width:0;height:1px;background:var(--gold);transition:.35s}
+  .nav-links a:hover{color:var(--gold)}
+  .nav-links a:hover::after{width:100%}
+  .btn{
+    display:inline-block;font-family:'Jost',sans-serif;font-size:.74rem;
+    letter-spacing:.16em;text-transform:uppercase;padding:14px 28px;
+    background:var(--gold);color:var(--white);border:1px solid var(--gold);
+    transition:.4s;cursor:pointer;font-weight:400;
+  }
+  .btn:hover{background:transparent;color:var(--gold-deep);border-color:var(--gold-deep)}
+  .btn.ghost{background:transparent;color:var(--gold-deep);border-color:var(--champagne)}
+  .btn.ghost:hover{background:var(--gold);color:var(--white);border-color:var(--gold)}
+  .btn-sm{padding:11px 22px;font-size:.68rem}
+  .menu-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:6px}
+  .menu-toggle span{width:24px;height:1.5px;background:var(--ink);transition:.3s}
+
+  /* HERO */
+  header.hero{
+    min-height:100vh;display:flex;align-items:center;position:relative;
+    padding:120px 0 60px;overflow:hidden;
+  }
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center;width:100%}
+  .hero-copy .eyebrow{margin-bottom:22px;display:block}
+  .hero h1{font-size:clamp(3rem,6.4vw,5.6rem);letter-spacing:-.01em;margin-bottom:24px}
+  .hero h1 em{color:var(--gold);font-weight:400}
+  .hero-tag{font-size:1.12rem;color:var(--ink-soft);max-width:440px;margin-bottom:38px;font-weight:300}
+  .hero-cta{display:flex;gap:16px;flex-wrap:wrap}
+  .hero-visual{position:relative}
+  .hero-visual img{width:100%;height:640px;object-fit:cover;border-radius:2px}
+  .hero-visual::before{
+    content:'';position:absolute;inset:-16px;border:1px solid var(--champagne);
+    z-index:-1;transform:translate(20px,20px);
+  }
+  .hero-badge{
+    position:absolute;bottom:-30px;left:-30px;background:var(--white);
+    padding:26px 30px;box-shadow:0 30px 60px -30px rgba(120,90,50,.5);
+    max-width:230px;
+  }
+  .hero-badge p{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.25rem;color:var(--ink);line-height:1.35}
+  .float-deco{position:absolute;font-family:'Cormorant Garamond',serif;color:var(--ivory-2);
+    font-size:20rem;top:-8%;right:-4%;z-index:-2;user-select:none;line-height:1}
+
+  /* MARQUEE */
+  .marquee{border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;background:var(--ivory-2);padding:16px 0}
+  .marquee-track{display:flex;gap:60px;white-space:nowrap;animation:scroll 34s linear infinite}
+  .marquee-track span{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.5rem;color:var(--gold-deep)}
+  .marquee-track span::before{content:'·';margin-right:60px;color:var(--champagne)}
+  @keyframes scroll{to{transform:translateX(-50%)}}
+
+  /* SECTIONS */
+  section{padding:110px 0;position:relative}
+  .sec-head{max-width:680px;margin-bottom:56px}
+  .sec-head.center{margin-left:auto;margin-right:auto;text-align:center}
+  .sec-head h2{font-size:clamp(2.3rem,4.6vw,3.6rem);margin:16px 0 18px}
+  .sec-head p{color:var(--ink-soft);font-size:1.05rem}
+  .num{font-family:'Cormorant Garamond',serif;color:var(--champagne);font-size:1.1rem;letter-spacing:.2em}
+
+  /* alternating tint */
+  .tint{background:var(--ivory-2)}
+
+  /* SERVICE feature layout */
+  .svc-feature{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+  .svc-feature.rev{direction:rtl}
+  .svc-feature.rev>*{direction:ltr}
+  .svc-img{position:relative}
+  .svc-img img{width:100%;height:520px;object-fit:cover;border-radius:2px}
+  .svc-img::after{content:'';position:absolute;inset:0;border:1px solid rgba(255,255,255,.4);margin:16px;pointer-events:none}
+  .svc-content h3{font-size:clamp(2rem,3.4vw,2.9rem);margin:14px 0 20px}
+  .svc-content>p{color:var(--ink-soft);margin-bottom:30px;max-width:480px}
+  .svc-list{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:2px 26px;margin-bottom:34px}
+  .svc-list li{padding:11px 0;border-bottom:1px solid var(--line);font-size:.95rem;display:flex;gap:12px;align-items:baseline}
+  .svc-list li::before{content:'';width:6px;height:6px;background:var(--gold);border-radius:50%;flex:none;transform:translateY(-1px)}
+  .svc-list li .hi{font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--gold-deep);font-size:1.05rem}
+
+  /* Simple service cards for shorter services */
+  .card-row{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+  .card{background:var(--white);padding:40px 34px;border:1px solid var(--line);transition:.45s;position:relative;overflow:hidden}
+  .card::before{content:'';position:absolute;top:0;left:0;width:100%;height:2px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:.5s}
+  .card:hover{transform:translateY(-8px);box-shadow:0 40px 70px -40px rgba(120,90,50,.4)}
+  .card:hover::before{transform:scaleX(1)}
+  .card .idx{font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--champagne);font-size:1.4rem;margin-bottom:14px}
+  .card h4{font-size:1.5rem;margin-bottom:12px}
+  .card p{color:var(--ink-soft);font-size:.92rem}
+
+  /* TEAM */
+  .team-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:44px;margin-top:20px}
+  .team-card{background:var(--white);border:1px solid var(--line)}
+  .team-card img{width:100%;height:400px;object-fit:cover;object-position:top}
+  .team-body{padding:32px 34px}
+  .team-body h4{font-size:1.7rem;margin-bottom:4px}
+  .team-role{color:var(--gold);font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;margin-bottom:14px}
+  .team-body p{color:var(--ink-soft);font-size:.95rem}
+  .team-quote{max-width:760px;margin:60px auto 0;text-align:center;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.7rem;line-height:1.4;color:var(--ink)}
+
+  /* TESTIMONIALS */
+  .test-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:26px}
+  .test{background:var(--white);padding:34px 30px;border:1px solid var(--line);position:relative}
+  .test .mark{font-family:'Cormorant Garamond',serif;font-size:3.5rem;color:var(--champagne);line-height:.6;height:24px}
+  .test p{font-size:.96rem;color:var(--ink-soft);margin:10px 0 18px}
+  .test .who{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+
+  /* FINANCING */
+  .fin-wrap{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;
+    background:var(--white);border:1px solid var(--line);padding:0;overflow:hidden}
+  .fin-img{height:100%;min-height:420px;object-fit:cover}
+  .fin-copy{padding:60px 56px}
+  .fin-copy h2{font-size:clamp(2rem,3.4vw,2.9rem);margin:14px 0 20px}
+  .fin-copy p{color:var(--ink-soft);margin-bottom:28px}
+  .fin-feats{list-style:none;margin-bottom:34px}
+  .fin-feats li{padding:12px 0;border-bottom:1px solid var(--line);display:flex;gap:14px;align-items:baseline;font-size:.98rem}
+  .fin-feats li span{color:var(--gold);font-family:'Cormorant Garamond',serif;font-size:1.2rem}
+
+  /* CONTACT */
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+  .contact-info h2{font-size:clamp(2.2rem,4vw,3.4rem);margin:16px 0 26px}
+  .contact-list{list-style:none}
+  .contact-list li{padding:22px 0;border-bottom:1px solid var(--line)}
+  .contact-list .lbl{font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:6px}
+  .contact-list .val{font-family:'Cormorant Garamond',serif;font-size:1.55rem;color:var(--ink)}
+  .contact-list a.val{transition:.3s}
+  .contact-list a.val:hover{color:var(--gold)}
+  .contact-cta{margin-top:34px;display:flex;gap:14px;flex-wrap:wrap}
+  .map-card{position:relative}
+  .map-card img{width:100%;height:560px;object-fit:cover}
+  .map-card .pin{position:absolute;bottom:26px;left:26px;right:26px;background:rgba(255,253,250,.94);
+    backdrop-filter:blur(6px);padding:26px 30px}
+  .map-card .pin h4{font-size:1.5rem;margin-bottom:4px}
+  .map-card .pin p{color:var(--ink-soft);font-size:.92rem}
+
+  /* FINAL CTA */
+  .final{background:linear-gradient(160deg,#26211b,#3a332b);color:var(--ivory);text-align:center;padding:130px 0}
+  .final h2{font-size:clamp(2.6rem,5.5vw,4.6rem);color:var(--white);margin-bottom:20px}
+  .final h2 em{color:var(--champagne)}
+  .final p{color:rgba(250,246,240,.7);max-width:520px;margin:0 auto 40px;font-size:1.08rem}
+  .final .btn.ghost{border-color:var(--champagne);color:var(--champagne)}
+  .final .btn.ghost:hover{background:var(--champagne);color:var(--ink)}
+
+  /* FOOTER */
+  footer{background:#1e1a15;color:rgba(250,246,240,.6);padding:60px 0 34px;font-size:.86rem}
+  .foot-top{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:30px;padding-bottom:36px;border-bottom:1px solid rgba(255,255,255,.09)}
+  .foot-brand{font-family:'Cormorant Garamond',serif;font-size:1.7rem;letter-spacing:.16em;color:var(--ivory)}
+  .foot-brand span{color:var(--champagne)}
+  .foot-links{display:flex;gap:26px;flex-wrap:wrap}
+  .foot-links a{transition:.3s}.foot-links a:hover{color:var(--champagne)}
+  .foot-bottom{padding-top:26px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:.78rem}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(38px);transition:.9s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+  .reveal.d1{transition-delay:.1s}.reveal.d2{transition-delay:.2s}.reveal.d3{transition-delay:.3s}
+
+  /* RESPONSIVE */
+  @media(max-width:960px){
+    .nav-links{
+      position:fixed;top:0;right:0;height:100vh;width:78%;max-width:340px;
+      background:var(--white);flex-direction:column;justify-content:center;
+      gap:22px;padding:40px;transform:translateX(100%);transition:.5s;box-shadow:-20px 0 60px -30px rgba(0,0,0,.4);
+    }
+    .nav-links.open{transform:translateX(0)}
+    .nav-links a{font-size:.9rem}
+    .menu-toggle{display:flex;z-index:120}
+    .hero-grid,.svc-feature,.svc-feature.rev,.fin-wrap,.contact-grid{grid-template-columns:1fr;direction:ltr}
+    .svc-feature.rev>*{direction:ltr}
+    .hero-visual{order:-1}
+    .hero-visual img{height:420px}
+    .svc-img img{height:400px}
+    .team-grid{grid-template-columns:1fr}
+    .test-grid{grid-template-columns:1fr 1fr}
+    .card-row{grid-template-columns:1fr}
+    .float-deco{display:none}
+    .fin-img{min-height:280px}
+  }
+  @media(max-width:560px){
+    .wrap{padding:0 20px}
+    nav{padding:14px 20px}
+    .svc-list{grid-template-columns:1fr}
+    .test-grid{grid-template-columns:1fr}
+    .hero-badge{left:0;bottom:-24px}
+    .fin-copy,.map-card .pin{padding:36px 26px}
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#top" class="brand">KOUKLA<span>·</span></a>
+  <div class="nav-links" id="navlinks">
+    <a href="#fillers">Fillers</a>
+    <a href="#botox">Botox</a>
+    <a href="#prp">PRP</a>
+    <a href="#sculptra">Sculptra</a>
+    <a href="#threads">Threads</a>
+    <a href="#fat">Fat Dissolving</a>
+    <a href="#team">Team</a>
+    <a href="#financing">Financing</a>
+    <a href="#contact">Contact</a>
+    <a href="https://revolutionaesthetica.janeapp.com/" class="btn btn-sm" target="_blank" rel="noopener">Book Now</a>
+  </div>
+  <button class="menu-toggle" id="menuBtn" aria-label="menu"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="top">
+  <div class="float-deco">K</div>
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <span class="eyebrow reveal">Boutique Injectables · Surrey BC</span>
+      <h1 class="reveal d1">Skin <em>Confident</em><br>by Koukla.</h1>
+      <p class="hero-tag reveal d2">Look and feel your best. Natural, personalized results delivered by highly-qualified nurses in a clean, welcoming studio.</p>
+      <div class="hero-cta reveal d3">
+        <a href="https://revolutionaesthetica.janeapp.com/" class="btn" target="_blank" rel="noopener">Book a Consultation</a>
+        <a href="tel:6049963373" class="btn ghost">Call 604-996-3373</a>
+      </div>
+    </div>
+    <div class="hero-visual reveal d2">
+      <img src="https://images.unsplash.com/photo-1560750588-73207b1ef5b8?auto=format&fit=crop&w=900&q=80" alt="Radiant, natural glowing skin">
+      <div class="hero-badge">
+        <p>“Natural results, refined artistry.”</p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- MARQUEE -->
+<div class="marquee">
+  <div class="marquee-track">
+    <span>Dermal Fillers</span><span>Botox &amp; Neuromodulators</span><span>PRP &amp; PRF</span><span>Sculptra</span><span>PDO Threads</span><span>Fat Dissolving</span>
+    <span>Dermal Fillers</span><span>Botox &amp; Neuromodulators</span><span>PRP &amp; PRF</span><span>Sculptra</span><span>PDO Threads</span><span>Fat Dissolving</span>
+  </div>
+</div>
+
+<!-- DERMAL FILLERS -->
+<section id="fillers">
+  <div class="wrap">
+    <div class="svc-feature">
+      <div class="svc-img reveal">
+        <img src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&fit=crop&w=800&q=80" alt="Soft feminine portrait">
+      </div>
+      <div class="svc-content reveal d1">
+        <span class="num">01 — Injectables</span>
+        <h3>Dermal Fillers</h3>
+        <p>Sculpt, restore and balance with hyaluronic acid fillers, thoughtfully placed to enhance your natural features — never overdone.</p>
+        <ul class="svc-list">
+          <li><span class="hi">Lip Filler</span> — incl. the Russian Lip technique</li>
+          <li><span class="hi">Nose Filler</span> — non-surgical rhinoplasty</li>
+          <li><span class="hi">Under-Eye Filler</span></li>
+          <li><span class="hi">Smile Line</span> — nasolabial filler</li>
+          <li><span class="hi">Jawline Filler</span></li>
+          <li><span class="hi">Cheek Filler</span></li>
+          <li><span class="hi">Chin Filler</span></li>
+          <li><span class="hi">Facial &amp; Profile Balancing</span></li>
+        </ul>
+        <a href="https://revolutionaesthetica.janeapp.com/" class="btn" target="_blank" rel="noopener">Book a Consultation</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOTOX -->
+<section id="botox" class="tint">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="num">02 — Injectables</span>
+      <h2>Botox &amp; Neuromodulators</h2>
+      <p>Smooth expression lines and prevent new ones with precisely-dosed neuromodulators — soft, refreshed, and unmistakably you.</p>
+    </div>
+    <div class="card-row">
+      <div class="card reveal">
+        <div class="idx">i.</div><h4>Botox</h4>
+        <p>The trusted standard for softening forehead lines, frown lines and crow's feet with natural movement preserved.</p>
+      </div>
+      <div class="card reveal d1">
+        <div class="idx">ii.</div><h4>Nuceiva</h4>
+        <p>A modern neuromodulator option for smoothing dynamic lines with a refined, natural finish.</p>
+      </div>
+      <div class="card reveal d2">
+        <div class="idx">iii.</div><h4>Dysport</h4>
+        <p>Fast-acting and beautifully diffused — ideal for broader treatment areas and a seamless result.</p>
+      </div>
+      <div class="card reveal">
+        <div class="idx">iv.</div><h4>Botox for Men</h4>
+        <p>Tailored dosing that maintains masculine structure while softening the deep lines of expression.</p>
+      </div>
+      <div class="card reveal d1" style="grid-column:span 2;display:flex;flex-direction:column;justify-content:center;background:var(--ink);color:var(--ivory);border-color:var(--ink)">
+        <h4 style="color:var(--white);font-size:2rem;margin-bottom:14px">A tailored treatment plan, every time.</h4>
+        <p style="color:rgba(250,246,240,.75)">Your consultation shapes the approach — dosing, product and placement personalized to your face and goals.</p>
+        <a href="https://revolutionaesthetica.janeapp.com/" class="btn ghost" style="margin-top:22px;align-self:flex-start;border-color:var(--champagne);color:var(--champagne)" target="_blank" rel="noopener">Book a Consultation</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRP -->
+<section id="prp">
+  <div class="wrap">
+    <div class="svc-feature rev">
+      <div class="svc-img reveal">
+        <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&w=800&q=80" alt="Skin treatment glow">
+      </div>
+      <div class="svc-content reveal d1">
+        <span class="num">03 — Regenerative</span>
+        <h3>Platelet Rich Plasma</h3>
+        <p>PRP &amp; PRF harness your body's own growth factors to restore, rejuvenate and revive — the natural approach to regeneration.</p>
+        <ul class="svc-list">
+          <li><span class="hi">PRP Hair Restoration</span></li>
+          <li><span class="hi">PRP Under Eyes</span></li>
+          <li><span class="hi">PRP Microneedling</span></li>
+        </ul>
+        <a href="https://revolutionaesthetica.janeapp.com/" class="btn" target="_blank" rel="noopener">Book a Consultation</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCULPTRA & THREADS & FAT -->
+<section id="sculptra" class="tint">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="num">04 — Collagen &amp; Contour</span>
+      <h2>Sculptra · PDO Threads · Fat Dissolving</h2>
+      <p>Regenerate volume, lift and refine your contours — beautifully, without surgery.</p>
+    </div>
+    <div class="card-row">
+      <div class="card reveal" style="padding:0;overflow:hidden">
+        <img src="https://images.unsplash.com/photo-1620331311520-246422fd82f9?auto=format&fit=crop&w=600&q=80" alt="Sculptra treatment" style="height:220px;width:100%;object-fit:cover">
+        <div style="padding:34px 30px">
+          <div class="idx">Sculptra Aesthetic</div>
+          <h4>Gradual, Natural Volume</h4>
+          <p>A collagen-stimulating treatment that works with your body to rebuild volume slowly and subtly, for results that look effortlessly your own.</p>
+        </div>
+      </div>
+      <div class="card reveal d1" id="threads" style="padding:0;overflow:hidden">
+        <img src="https://images.unsplash.com/photo-1596704017254-9b121068fb31?auto=format&fit=crop&w=600&q=80" alt="PDO threads lift" style="height:220px;width:100%;object-fit:cover">
+        <div style="padding:34px 30px">
+          <div class="idx">PDO Threads</div>
+          <h4>Non-Surgical Lift</h4>
+          <p>Dissolvable threads gently lift and reposition tissue while stimulating collagen — for firmer, tighter, more lifted skin without downtime.</p>
+        </div>
+      </div>
+      <div class="card reveal d2" id="fat" style="padding:0;overflow:hidden">
+        <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&w=600&q=80" alt="Body contouring" style="height:220px;width:100%;object-fit:cover">
+        <div style="padding:34px 30px">
+          <div class="idx">Fat Dissolving</div>
+          <h4>Targeted Contouring</h4>
+          <p>Non-surgical injections that dissolve stubborn pockets of fat, refining and sculpting problem areas for a smoother, contoured silhouette.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section id="team">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="num">05 — The People</span>
+      <h2>Meet Our Team</h2>
+      <p>Our commitment to quality customer service is paramount to your entire aesthetic experience. Our highly-qualified nurses deliver natural, personalized results in a clean, welcoming studio.</p>
+    </div>
+    <div class="team-grid">
+      <div class="team-card reveal">
+        <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&w=700&q=80" alt="Nurse Alexandra">
+        <div class="team-body">
+          <h4>Nurse Alexandra</h4>
+          <div class="team-role">Registered Nurse · Injector</div>
+          <p>Praised by clients for her expertise, gentleness and deep knowledge, Alexandra brings a calm, meticulous touch to every treatment — putting your comfort and confidence first.</p>
+        </div>
+      </div>
+      <div class="team-card reveal d1">
+        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=700&q=80" alt="Nurse Jasmeen Shahota">
+        <div class="team-body">
+          <h4>Nurse Jasmeen Shahota</h4>
+          <div class="team-role">Registered Nurse · Lip Filler Specialist</div>
+          <p>A dedicated lip-filler specialist, Jasmeen is known for her artistry and precision — crafting balanced, natural-looking enhancements tailored to each client's unique features.</p>
+        </div>
+      </div>
+    </div>
+    <p class="team-quote reveal d1">“Natural, personalized results in a clean, welcoming studio — because your comfort and confidence matter most.”</p>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="tint">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="num">In Their Words</span>
+      <h2>Trusted &amp; Loved</h2>
+      <p>Real sentiment from clients who value results that look like the best version of themselves.</p>
+    </div>
+    <div class="test-grid">
+      <div class="test reveal">
+        <div class="mark">“</div>
+        <p>Results look completely natural — enhanced, never overdone. Exactly what I hoped for.</p>
+        <div class="who">Verified Client</div>
+      </div>
+      <div class="test reveal d1">
+        <div class="mark">“</div>
+        <p>The nurses are so highly educated and professional. I felt informed and cared for at every step.</p>
+        <div class="who">Verified Client</div>
+      </div>
+      <div class="test reveal d2">
+        <div class="mark">“</div>
+        <p>Spotlessly clean office and a warm, welcoming atmosphere. It feels like a true boutique studio.</p>
+        <div class="who">Verified Client</div>
+      </div>
+      <div class="test reveal d3">
+        <div class="mark">“</div>
+        <p>They took time to build a personalized treatment plan for me. No pressure, just great guidance.</p>
+        <div class="who">Verified Client</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINANCING -->
+<section id="financing">
+  <div class="wrap">
+    <div class="fin-wrap reveal">
+      <img class="fin-img" src="https://images.unsplash.com/photo-1522337660859-02fbefca4702?auto=format&fit=crop&w=700&q=80" alt="Relaxed spa moment">
+      <div class="fin-copy">
+        <span class="num">06 — Financing</span>
+        <h2>Flexible Payment Options</h2>
+        <p>Your best self should feel attainable. We offer flexible financing and treatment payment options so you can plan your aesthetic journey with ease and confidence.</p>
+        <ul class="fin-feats">
+          <li><span>✦</span> Flexible financing available on treatments</li>
+          <li><span>✦</span> Manageable treatment payment plans</li>
+          <li><span>✦</span> Transparent, upfront pricing at consultation</li>
+        </ul>
+        <a href="https://revolutionaesthetica.janeapp.com/" class="btn" target="_blank" rel="noopener">Book a Consultation</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="tint">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <span class="num">07 — Visit Us</span>
+        <h2>Location &amp; Contact</h2>
+        <ul class="contact-list">
+          <li>
+            <span class="lbl">Studio</span>
+            <span class="val">13798 94A Avenue, Unit 306<br>Surrey, BC</span>
+          </li>
+          <li>
+            <span class="lbl">Phone</span>
+            <a class="val" href="tel:6049963373">604-996-3373</a>
+          </li>
+          <li>
+            <span class="lbl">Email</span>
+            <a class="val" href="mailto:koukla1@shaw.ca">koukla1@shaw.ca</a>
+          </li>
+          <li>
+            <span class="lbl">Instagram</span>
+            <a class="val" href="https://instagram.com/koukla_aesthetics" target="_blank" rel="noopener">@koukla_aesthetics</a>
+          </li>
+        </ul>
+        <div class="contact-cta">
+          <a href="https://revolutionaesthetica.janeapp.com/" class="btn" target="_blank" rel="noopener">Book a Consultation</a>
+          <a href="tel:6049963373" class="btn ghost">Call 604-996-3373</a>
+        </div>
+      </div>
+      <div class="map-card reveal d1">
+        <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=800&q=80" alt="Welcoming studio interior">
+        <div class="pin">
+          <h4>Koukla Aesthetics Studio</h4>
+          <p>Unit 306 · 13798 94A Avenue, Surrey BC — a clean, welcoming space for your appointment.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final">
+  <div class="wrap">
+    <span class="eyebrow reveal" style="color:var(--champagne)">Skin Confident</span>
+    <h2 class="reveal d1">Ready to look &amp;<br><em>feel your best?</em></h2>
+    <p class="reveal d2">Book your personalized consultation with our highly-qualified nurses and discover natural results, thoughtfully crafted for you.</p>
+    <div class="reveal d3" style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
+      <a href="https://revolutionaesthetica.janeapp.com/" class="btn" target="_blank" rel="noopener" style="background:var(--champagne);border-color:var(--champagne);color:var(--ink)">Book a Consultation</a>
+      <a href="tel:6049963373" class="btn ghost">Call 604-996-3373</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div>
+        <div class="foot-brand">KOUKLA <span>Aesthetics</span></div>
+        <p style="margin-top:10px;max-width:320px">Skin Confident — Look and Feel Your Best. Boutique injectables clinic in Surrey, BC.</p>
+      </div>
+      <div class="foot-links">
+        <a href="#fillers">Fillers</a>
+        <a href="#botox">Botox</a>
+        <a href="#prp">PRP</a>
+        <a href="#sculptra">Sculptra</a>
+        <a href="#threads">Threads</a>
+        <a href="#fat">Fat Dissolving</a>
+        <a href="#team">Team</a>
+        <a href="#financing">Financing</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2024 Koukla Aesthetics. All rights reserved.</span>
+      <span>13798 94A Avenue, Unit 306, Surrey BC · 604-996-3373 · @koukla_aesthetics</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // nav scroll state
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  // mobile menu
+  const btn = document.getElementById('menuBtn');
+  const links = document.getElementById('navlinks');
+  btn.addEventListener('click', () => links.classList.toggle('open'));
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+
+  // scroll reveals
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.14, rootMargin: '0px 0px -60px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
